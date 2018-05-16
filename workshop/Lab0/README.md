@@ -3,10 +3,69 @@
 Before we begin, we need to install Service Catalog and its associated CLI utility, svcat.
 Towards that end, this lab contains instructions to install:
 
+* Configure your IBM Cloud Kubernetes cluster's config map
 * The Helm CLI, version 2.7.0 or later
 * The Helm tiller pod inside your cluster
 * Service Catalog, version 0.1.18 or later
 * svcat, the Service Catalog CLI tool
+
+# Configure Configmap
+
+In order for the API aggregation for Service Catalog to work, we need to configure Kubernetes
+to allow connections to the Service Catalog apiserver. When you run 
+
+`kubectl -n kube-system get configmap extension-apiserver-authentication -o yaml`
+
+you should get something that looks like this:
+
+```
+apiVersion: v1
+data:
+  client-ca-file: |
+    [ca cert contents]
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2018-05-15T21:54:32Z
+  name: extension-apiserver-authentication
+  namespace: kube-system
+  resourceVersion: "40"
+  selfLink: /api/v1/namespaces/kube-system/configmaps/extension-apiserver-authentication
+  uid: 8cffeb79-588a-11e8-a7c5-080027622ad8
+```
+
+We need to add a few additional entries for the extension server. Do this by running the command
+
+`kubectl -n kubesystem edit configmap extension-apiserver-authentication`
+
+and inserting the bolded sections. Note that you will have to copy the pre-existing CA cert from the
+client-ca-file section into the request-header-client-ca-file section.
+
+<pre>
+apiVersion: v1
+data:
+  client-ca-file: |
+    [ca cert contents]
+  <b>requestheader-allowed-names: '[]'
+  requestheader-client-ca-file: |
+    [copy ca cert from above]
+  requestheader-extra-headers-prefix: '["X-Remote-Extra-"]'
+  requestheader-group-headers: '["X-Remote-Group"]'
+  requestheader-username-headers: '["X-Remote-User"]'</b>
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2018-05-15T21:54:32Z
+  name: extension-apiserver-authentication
+  namespace: kube-system
+  resourceVersion: "40"
+  selfLink: /api/v1/namespaces/kube-system/configmaps/extension-apiserver-authentication
+  uid: 8cffeb79-588a-11e8-a7c5-080027622ad8
+</pre>
+
+After doing this, you should be able to run 
+
+`kubectl -n kube-system get configmap extension-apiserver-authentication -o yaml`
+
+and see the newly added sections in the output.
 
 # Install Helm
 
@@ -22,8 +81,6 @@ for creating additional infrastructure inside your cluster.
 # Install Service Catalog
 
 Service Catalog is installed via a Helm chart, a manifest that describes what to install and how to run it.
-
-XXXXXX How to start a kube cluster on IBM cloud with RBAC enabled?
 
 1. First, add the Service Catalog repo to your helm by running `helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com`
 You should see the repository listed in the output of `helm search service-catalog`.
@@ -65,7 +122,7 @@ $env:PATH += ";${pwd}\bin"`
 
 Ensure that you can see svcat and it can access your Kubernetes deployment:
 ```
->svcat get classes
+> svcat get classes
   NAME   DESCRIPTION   UUID  
 +------+-------------+------+
 ```
