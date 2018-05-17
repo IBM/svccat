@@ -9,6 +9,14 @@ Towards that end, this lab contains instructions to install:
 * Service Catalog, version 0.1.18 or later
 * svcat, the Service Catalog CLI tool
 
+# Set KUBECONFIG
+
+Make sure your KUBECONFIG environment variable is set to the output of
+
+`bx cs cluster-config [cluster-name]`
+
+or otherwise targeting your IBM Cloud Kubernetes Service cluster.
+
 # Configure Configmap
 
 In order for the API aggregation for Service Catalog to work, we need to configure Kubernetes
