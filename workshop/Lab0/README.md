@@ -127,7 +127,8 @@ Ensure that you can see svcat and it can access your Kubernetes deployment:
 +------+-------------+------+
 ```
 
-Download the Workshop Source Code
+# Download the Workshop Source Code
+
 Repo `guestbook` has the application that we'll be deploying. 
 While we're not going to build it we will use the deployment configuration files from that repo. 
 Guestbook application has two versions v1 and v2 which we will use to demonstrate some rollout 
