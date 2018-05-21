@@ -1,7 +1,7 @@
-# Lab 1: Deploy an application with hardcoded services.
+# Lab 1: Deploy an application with in-memory storage.
 
-Learn to deploy an application hosted within the IBM Kubernetes Service with hardcoded references
-to a Redis backing store.
+Learn to deploy an application hosted within the IBM Kubernetes Service that stores
+state in memory.
 
 # Deploy your application
 
