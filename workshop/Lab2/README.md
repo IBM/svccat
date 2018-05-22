@@ -21,13 +21,13 @@ We want some sort of stable backing store for our application to store it's stat
 the [IBM Cloud Catalog](https://console.bluemix.net/catalog/) for the Redis Cloud service. Provision
 and instance of the free 30 MB tier service.
 
-![Redis Service](https://github.com/IBM/svccat/master/workshop/images/redis_service.png)
+![Redis Service](../images/redis_service.png)
 
 Once the service is provisioned, go to [your dashboard](https://console.bluemix.net/dashboard/apps) and it
 should be listed under "Cloud Foundry Services". Click on the Redis entry and then click through to the dashboard.
 Then, click on your specific instance, and you should find information for your specific instance:
 
-![Redis Dashboard](https://github.com/IBM/svccat/master/workshop/images/redis_dashboard.png)
+![Redis Dashboard](../images/redis_dashboard.png)
 
 Note the listed endpoint and password for your instance. We will be using this information to
 connect Guestbook to your Redis instance in the next step.
