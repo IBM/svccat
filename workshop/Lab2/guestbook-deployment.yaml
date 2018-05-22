@@ -16,16 +16,14 @@ spec:
     spec:
       containers:
       - name: guestbook
-        image: jberkhahn/guestbooktest
+        image: ibmcom/guestbook:v1
         ports:
         - name: http-server
           containerPort: 3000
         env:
         - name: REDIS_MASTER_SERVICE_HOST
-          value: "pub-redis-17681.dal-05.1.sl.garantiadata.com"
+          value: "INSERT_HOST_HERE"
         - name: REDIS_MASTER_SERVICE_PORT
-          value: "17681"
+          value: "INSERT_PORT_HERE"
         - name: REDIS_MASTER_SERVICE_PASSWORD
-          value: "zA15N4yvtm2tZuIIGwH8bULQWgYbeW2X"
-        - name: REDIS_MASTER_PORT
-          value: "foobar"
+          value: "INSERT_PASSWORD_HERE"
