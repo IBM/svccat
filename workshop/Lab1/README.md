@@ -46,7 +46,7 @@ that has already been built and uploaded to DockerHub under the name
 
 4. To find the port used on that worker node, examine your new service:
 
-   ```console
+   ```
    $ kubectl get service guestbook
    NAME        TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
    guestbook   NodePort   10.10.10.253   <none>        3000:31208/TCP   1m
@@ -94,12 +94,14 @@ NAME                         READY     STATUS    RESTARTS   AGE
 guestbook-7b79469f5f-p9p8t   1/1       Running   0          11s
 ```
 
-If we go back and refresh Guestbook in our browser, we can see that the entries we previously created are gone. This is obviously not ideal. We would like data
+If we go back and refresh Guestbook in our browser, we can see that the entries 
+we previously created are gone. This is obviously not ideal. We would like data
 entered into our application to persist beyond the lifetime of individual containers.
+In [the next lab of this course](../Lab2/README.md), we'll learn to manually provision
+and connect some stable storage to persist our application data.
 
-When you're all done, you can either use this deployment in the
-[next lab of this course](../Lab2/README.md) where we will learn to manually provision some stable storage and connect
-it to Guestbook, or you can remove the deployment and thus stop taking the course.
+When you're all done, you can either use this deployment in the next lab,
+or you can remove the deployment and thus stop taking the course.
 
   1. To remove the deployment, use `$ kubectl delete deployment guestbook`.
 
