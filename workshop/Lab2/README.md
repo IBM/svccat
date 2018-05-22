@@ -17,9 +17,14 @@ it is storing state locally in memory.
 
 # Manually provision a Redis instance
 
-We want some sort of stable backing store for our application to store it's state in. Look on
-the [IBM Cloud Catalog](https://console.bluemix.net/catalog/) for the Redis Cloud service. Provision
-and instance of the free 30 MB tier service.
+We want some sort of stable backing store for our application to store it's state in. For the purposes
+of this workshop, we'll be using a service available publically on IBM Cloud. While it would technically
+be possible to plug this service directly into our Kube cluster using the IBM Cloud Dashboard, this step is
+really a stand in for any sort of manually provisioned service. It could be a pre existing legacy service, or
+a service managed using some other workflow. 
+
+Head over to the [IBM Cloud Catalog](https://console.bluemix.net/catalog/) and search for the 
+Redis Cloud service. Provision an instance of the free 30 MB tier service.
 
 ![Redis Service](../images/redis_service.png)
 
