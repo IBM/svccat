@@ -43,7 +43,7 @@ metadata:
 
 We need to add a few additional entries for the extension server. Do this by running the command
 
-`kubectl -n kubesystem edit configmap extension-apiserver-authentication`
+`kubectl -n kube-system edit configmap extension-apiserver-authentication`
 
 and inserting the bolded sections. Note that you will have to copy the pre-existing CA cert from the
 client-ca-file section into the request-header-client-ca-file section.
@@ -81,20 +81,29 @@ and see the newly added sections in the output.
 2. Run `helm init` to install the tiller pod into your kube cluster. This pod is Helm's entry point
 for creating additional infrastructure inside your cluster.
 3. To allow the tiller pod permissions to perform changes inside your cluster, run
-`kubectl create clusterrolebinding tiller-cluster-admin \
-    --clusterrole=cluster-admin \
-    --serviceaccount=kube-system:default
-`
+
+```
+kubectl create clusterrolebinding tiller-cluster-admin \
+--clusterrole=cluster-admin \
+--serviceaccount=kube-system:default
+```
 
 # Install Service Catalog
 
 Service Catalog is installed via a Helm chart, a manifest that describes what to install and how to run it.
 
-1. First, add the Service Catalog repo to your helm by running `helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com`
+1. First, add the Service Catalog repo to your helm by running 
+```
+helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
+```
 You should see the repository listed in the output of `helm search service-catalog`.
+
 2. Install Service Catalog by running 
-`helm install svc-cat/catalog \
-    --name catalog --namespace catalog`
+```
+helm install svc-cat/catalog \
+--name catalog --namespace catalog
+```
+
 You should be able to see the helm tiller and service catalog pods like so:
 ```
 > kubectl get pods --all-namespaces
