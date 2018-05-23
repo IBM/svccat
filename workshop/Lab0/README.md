@@ -145,8 +145,8 @@ functionality later. All the configuration files we use are under the directory 
 Repo `svccat` contains the step by step instructions to run the workshop.
 
 ```console
-$ git clone https://github.com/IBM/guestbook.git
-$ git clone https://github.com/IBM/svccat.git
+> git clone https://github.com/IBM/guestbook.git
+> git clone https://github.com/IBM/svccat.git
 ```
 
 After that, you should be good to go!

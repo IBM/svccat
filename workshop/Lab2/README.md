@@ -139,6 +139,6 @@ away by using a Kubernetes Secret to encapsulate our credentials.
 When you're all done, you can either use this deployment in the next lab,
 or you can remove the deployment and thus stop taking the course.
 
-  1. To remove the deployment, use `$ kubectl delete deployment guestbook`.
+  1. To remove the deployment, use `kubectl delete deployment guestbook`.
 
-  2. To remove the service, use `$ kubectl delete service guestbook`.
+  2. To remove the service, use `kubectl delete service guestbook`.
