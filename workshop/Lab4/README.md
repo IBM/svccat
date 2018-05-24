@@ -9,7 +9,7 @@ The [Open Service Broker API (OSBAPI)](https://www.openservicebrokerapi.org/) is
 standard that allows users of cloud platforms to provision, manage, and consume services
 in an automated fashion. We are going to create a service broker to automate deploying our
 Redis for us, as well as creating the secret that we consume in our deployment. If you're
-interested in what's going on behind the scenes, see [here](osb.md)
+interested in what's going on behind the scenes, see [here](osbapi.md)
 
 # Deploy a broker
 
