@@ -158,4 +158,10 @@ Repo `svccat` contains the step by step instructions to run the workshop.
 > git clone https://github.com/IBM/svccat.git
 ```
 
+# Create a Private Volume
+
+The service broker we will be deploying as part of this workshop will deploy resources into your Kubernetes cluster. In order
+for these services to have a place to store data, we need to create a Persistant Volume for them to mount. Find the `pv.yaml`
+file in the Lab0 directory of this repository, and then run `kubectl create -f pv.yaml`.
+
 After that, you should be good to go!
