@@ -46,7 +46,7 @@ The 200 OK response contains a JSON body that details all the offerings from thi
       "id": "abc",
       "name": "mysql",
       "description": "MySQL databases on demand",
-...
+      ...
       "plans": [{
               "id": "123",
               "name": "10mb",
