@@ -162,6 +162,11 @@ Repo `svccat` contains the step by step instructions to run the workshop.
 
 The service broker we will be deploying as part of this workshop will deploy resources into your Kubernetes cluster. In order
 for these services to have a place to store data, we need to create a Persistant Volume for them to mount. Find the `pv.yaml`
-file in the Lab0 directory of this repository, and then run `kubectl create -f pv.yaml`.
+file in the Lab0 directory of this repository, and then run 
+```
+kubectl create -f pv.yaml`.
+```
+If we were using an actual service broker, we wouldn't have to do this step.
+
 
 After that, you should be good to go!
