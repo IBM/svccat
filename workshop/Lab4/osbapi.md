@@ -16,7 +16,8 @@ web APIs.
 OSB API describes five object types: brokers, services, plans, instances, and bindings.
 
 * Brokers are a server that implements the OSB API and offers available services, e.g. a MySQL broker.
-* Services are a category of services offered by a broker, e.g. MySQL databases.
+* Services are a category of services offered by a broker, e.g. MySQL databases. In Kubernetes,
+these are referred to as Service Classes.
 * Plans are a specific type of a Service that a Broker offers, e.g. 100 MB MySQL databases.
 * Instances are a single provisioned instance of a Plan, e.g. Jonathan's 100 MB MySQL database.
 * Bindings are a unique set of credentials to access a specific Instance, e.g. a username/password for Jonathan's 100 MB MySQL database.
