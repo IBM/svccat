@@ -3,14 +3,11 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: shared
-  labels:
-    type: local
-    name: shared
 spec:
   capacity:
     storage: 8Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/network"
+    path: "/tmp"
   persistentVolumeReclaimPolicy: Retain
