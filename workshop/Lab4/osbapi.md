@@ -59,5 +59,10 @@ The 200 OK response contains a JSON body that details all the offerings from thi
               ...
         },
 }
-
 ```
+
+Services is an array containing information about each of the Services offered by the broker - 
+these are what Service Catalog calls Classes. Within each Service, there are many fields containing
+metadata about the Service itself, as well as an array of Plans. Each entry in this array contains
+information about a single Plan, including it's ID, a human-readable name, as well as many fields of
+metadata and descriptions.
