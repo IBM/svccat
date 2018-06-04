@@ -16,7 +16,7 @@ OSB service workflow.
 Now that we have Minibroker up and running in our Kube cluster, we can use it to provision
 a redis instance. If we run `svcat get classes` we can see all the services offered by Minibroker:
 ```
-> svcat get classes
+$ svcat get classes
      NAME             DESCRIPTION             UUID     
 +------------+---------------------------+------------+
   mariadb      Helm Chart for mariadb      mariadb     
@@ -29,7 +29,7 @@ a redis instance. If we run `svcat get classes` we can see all the services offe
 The same can be done for the Plans of those Classes by running `svcat get plans`. Note that
 this response contains a bit more info, so it can display quite a lot of text.
 ```
-> svcat get plans
+$ svcat get plans
    NAME       CLASS               DESCRIPTION                   UUID        
 +---------+------------+--------------------------------+------------------+
 .
@@ -80,10 +80,10 @@ Use svcat to provision an instance by running
 ```
 svcat provisison myredis --class=redis --plan=4-0-9
 ```
-If you're interested in a more in-depth explanation of what's going on behind the scenes, check [here](provision.md)
+If you're interested in a more in-depth explanation of what's going on behind the scenes, check [here](provision.md).
 After provisioning, you should be able to list service instances and see your instance:
 ```
-> svcat get instances
+$ svcat get instances
    NAME     NAMESPACE   CLASS   PLAN    STATUS
 +---------+-----------+-------+-------+--------+
   myredis   default     redis   4-0-9   Ready
@@ -92,7 +92,7 @@ After provisioning, you should be able to list service instances and see your in
 Also, just to make sure it bound to your persistant volume correctly, get all pods and
 make sure the new redis pods are up and running
 ```
-> kubectl get pods --all-namespaces
+$ kubectl get pods --all-namespaces
 NAMESPACE     NAME                                                  READY     STATUS    RESTARTS   AGE
 catalog       catalog-catalog-apiserver-8d85b8b48-64v9j             2/2       Running   0          1h
 catalog       catalog-catalog-controller-manager-689696c447-td5hc   1/1       Running   0          1h
@@ -114,7 +114,7 @@ minibroker    minibroker-minibroker-754468f859-2wnk8                2/2       Ru
 # Create a Binding to the Instance
 
 Now we need to create a Binding, which contains the credentials to acces this Service Instance. If you're
-interested in what is actually happening behind the scenes during binding, see [here](binding.md). For this
+interested in what is actually happening behind the scenes during binding, see [here](bind.md). For this
 lab, we will use this binding to get the creds into our deployment just like we used the manually
 created secret in Lab3.
 Create a binding by running:
@@ -125,7 +125,7 @@ svcat bind myredis
 It will take a few seconds for the pods running the service in the background to spin up. Eventually
 svcat should report back the binding as ready:
 ```
-> svcat get bindings
+$ svcat get bindings
    NAME    NAMESPACE   INSTANCE   STATUS
 +--------+-----------+----------+--------+
   myredis   default     myredis     Ready
@@ -133,7 +133,7 @@ svcat should report back the binding as ready:
 
 Additionally, we should be able to see the Kubernetes secret containing our binding info:
 ```
-> kubectl get secrets
+$ kubectl get secrets
 NAME                                   TYPE                                  DATA      AGE
 bluemix-default-secret                 kubernetes.io/dockercfg               1         1h
 bluemix-default-secret-international   kubernetes.io/dockercfg               1         1h
@@ -145,7 +145,7 @@ myredis                                Opaque                                6  
 
 We can also get the secret and see the creds that have been created for us:
 ```
-> kubectl get secrets/myredis -o yaml
+$ kubectl get secrets/myredis -o yaml
 apiVersion: v1
 data:
   Protocol: cmVkaXM=

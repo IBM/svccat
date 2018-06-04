@@ -26,7 +26,7 @@ helm install --name minibroker --namespace minibroker minibroker/minibroker
 You should be able to see the minibroker pods start up. Note that it's running in the `minibroker`
 namespace, which will also be the namespace it deploys subsequent resources into.
 ```
-> kubectl get pods --all-namespaces
+$ kubectl get pods --all-namespaces
 NAMESPACE     NAME                                                  READY     STATUS    RESTARTS   AGE
 catalog       catalog-catalog-apiserver-85f87465b-zmtv9             2/2       Running   0          3m
 catalog       catalog-catalog-controller-manager-674d789798-6nqwf   1/1       Running   0          3m
@@ -45,7 +45,7 @@ minibroker    minibroker-minibroker-754468f859-6wq7h                2/2       Ru
 
 The helm chart that installs minibroker should also register it with Service Catalog. Check this like so:
 ```
-> svcat get brokers
+$ svcat get brokers
      NAME                                 URL                              STATUS
 +------------+-----------------------------------------------------------+--------+
   minibroker   http://minibroker-minibroker.minibroker.svc.cluster.local   Ready
@@ -55,7 +55,7 @@ What's going on in OSBAPI terms here is once the broker is running, Service Cata
 the `/v2/catalog` endpoint on Minibroker. Minibroker returns information about all the services it offers.
 You can see a condensed version of this information by running:
 ```
-> svcat get classes
+$ svcat get classes
      NAME             DESCRIPTION             UUID
 +------------+---------------------------+------------+
   mariadb      Helm Chart for mariadb      mariadb

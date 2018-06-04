@@ -48,7 +48,7 @@ helm install svc-cat/catalog \
 
 You should be able to see the helm tiller and service catalog pods like so:
 ```
-> kubectl get pods --all-namespaces
+$ kubectl get pods --all-namespaces
 NAMESPACE     NAME                                                  READY     STATUS    RESTARTS   AGE
 catalog       catalog-catalog-apiserver-6bc6bb895d-f2xhp            2/2       Running   0          8m
 catalog       catalog-catalog-controller-manager-5c7475f7d4-fwlfg   1/1       Running   1          8m
@@ -81,23 +81,23 @@ $env:PATH += ";${pwd}\bin"`
 
 Ensure that you can see svcat and it can access your Kubernetes deployment:
 ```
-> svcat get classes
+$ svcat get classes
   NAME   DESCRIPTION   UUID  
 +------+-------------+------+
 ```
 
 # Download the Workshop Source Code
 
-Repo `guestbook` has the application that we'll be deploying. 
+The 'guestbook' repository has the application that we'll be deploying. 
 While we're not going to build it we will use the deployment configuration files from that repo. 
 Guestbook application has two versions v1 and v2 which we will use to demonstrate some rollout 
 functionality later. All the configuration files we use are under the directory guestbook/v1.
 
-Repo `svccat` contains the step by step instructions to run the workshop.
+The 'svccat' repository contains the step by step instructions to run the workshop.
 
-```console
-> git clone https://github.com/IBM/guestbook.git
-> git clone https://github.com/IBM/svccat.git
+```
+$ git clone https://github.com/IBM/guestbook.git
+$ git clone https://github.com/IBM/svccat.git
 ```
 
 # Create a Private Volume

@@ -10,4 +10,4 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/tmp"
-  persistentVolumeReclaimPolicy: Retain
+  persistentVolumeReclaimPolicy: Recycle

@@ -44,7 +44,7 @@ kubectl create -f secret.yaml
 You should be able to see it by getting secrets:
 
 ```
-> kubectl get secrets
+$ kubectl get secrets
 NAME                                   TYPE                                  DATA      AGE
 bluemix-default-secret                 kubernetes.io/dockercfg               1         23h
 bluemix-default-secret-international   kubernetes.io/dockercfg               1         23h
@@ -57,7 +57,7 @@ If you `kubectl get secret guestbookcreds -o yaml`, you should be able to use ba
 the fields back into the actual data.
 
 ```
-> kubectl get secret guestbookcreds -o yaml
+$ kubectl get secret guestbookcreds -o yaml
 apiVersion: v1
 data:
   host: cHViLXJlZGlzLTE3NjgxLmRhbC0wNS4xLnNsLmdhcmFudGlhZGF0YS5jb20K
@@ -72,7 +72,7 @@ metadata:
   selfLink: /api/v1/namespaces/default/secrets/guestbookcreds
   uid: 461722a2-5e13-11e8-826c-7273b59914b4
 type: Opaque
-> echo "cHViLXJlZGlzLTE3NjgxLmRhbC0wNS4xLnNsLmdhcmFudGlhZGF0YS5jb20K" | base 64 -D
+$ echo "cHViLXJlZGlzLTE3NjgxLmRhbC0wNS4xLnNsLmdhcmFudGlhZGF0YS5jb20K" | base 64 -D
 pub-redis-17681.dal-05.1.sl.garantiadata.com
 ```
 
