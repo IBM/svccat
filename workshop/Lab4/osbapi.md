@@ -8,19 +8,19 @@ but are more rightly more concerned with managing their platform.
 
 The Open Service Broker aims to solve these problems by providing a open standard to create brokers
 that allow application developers to provision, maintain, and consume services in a without having 
-to know what's going on behind the scenes. If you need a MySQL database, you can request one from
+to know what's going on behind the scenes. If you need a Redis store, you can request one from
 a service broker, bind it to your application, and go. Anything that can be decomposed into the
-service broker lifecycle can be offered as an OSB service, from databases to subscriptions to
-web APIs.
+service broker action lifecycle of provison, bind, unbdind, and deprovision can be offered as an
+OSB service, from databases to subscriptions to web APIs.
 
 OSB API describes five object types: brokers, services, plans, instances, and bindings.
 
-* Brokers are a server that implements the OSB API and offers available services, e.g. a MySQL broker.
-* Services are a category of services offered by a broker, e.g. MySQL databases. In Kubernetes,
+* Brokers are a server that implements the OSB API and offers available services, e.g. a Redis broker.
+* Services are a category of services offered by a broker, e.g. Redis stores. In Kubernetes,
 these are referred to as Service Classes.
-* Plans are a specific type of a Service that a Broker offers, e.g. 100 MB MySQL databases.
-* Instances are a single provisioned instance of a Plan, e.g. Jonathan's 100 MB MySQL database.
-* Bindings are a unique set of credentials to access a specific Instance, e.g. a username/password for Jonathan's 100 MB MySQL database.
+* Plans are a specific type of a Service that a Broker offers, e.g. version 4.0.9 of Redis.
+* Instances are a single provisioned instance of a Plan, e.g. Jonathan's v4.0.9 Redis store.
+* Bindings are a unique set of credentials to access a specific Instance, e.g. a username/password/host/port for Jonathan's v4.0.9 Redis store.
 
 The [API specification](https://github.com/openservicebrokerapi/servicebroker) describes five
 endpoints for a broker to implement: catalog, provision, bind, unbind, and deprovision.
@@ -45,17 +45,17 @@ The 200 OK response contains a JSON body that details all the offerings from thi
   "services": [
     {
       "id": "abc",
-      "name": "mysql",
-      "description": "MySQL databases on demand",
+      "name": "redis",
+      "description": "Open source, advanced key value store...",
       ...
       "plans": [{
               "id": "123",
-              "name": "10mb",
+              "name": "3-2-9",
               ...
         },
         {
               "id": "456",
-              "name": "20mb",
+              "name": "4-0-9",
               ...
         },
 }

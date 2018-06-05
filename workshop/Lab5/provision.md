@@ -1,8 +1,8 @@
 # Open Service Broker API - Provisioning a Service Instance
 
 Provisioning is the action by which a cloud platform requests for a Broker to instatiate
-a specific plan of a specific service. In the MySQL example, this would be asking a MySQL
-Broker to create an instance of the MySQL service of the 100 MB plan. 
+a specific plan of a specific service. In the Redis example, this would be asking a Redis 
+Broker to create an instance of the Redis service Class of the version 4.0.9 Plan. 
 
 # /v2/service_instances/:service_id Endpoint
 

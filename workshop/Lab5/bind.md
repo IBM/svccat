@@ -1,8 +1,8 @@
 # Open Service Broker API - Binding a Service Instance
 
 Binding is the action by which a cloud platform requests for a set of credentials to access
-a provisioned Instance. In the MySQL example, this would be asking the MySQL Broker for a set
-of credentials to access Jonathan's 100 MB MySQL database.
+a provisioned Instance. In the Redis example, this would be asking the Redis Broker for a set
+of credentials to access Jonathan's v4.0.9 Redis store.
 
 # /v2/service_instances/:service_id/service_bindings/:binding_id Endpoint
 
@@ -43,19 +43,19 @@ requesting platform. Bind resource is a map containing additional information ab
 is being created for. Parameters is a map where additional parameters specific to this Instance or Broker
 can be provided.
 
-The 201 CREATED response that the Broker can vary wildly. An example looks like this:
+The 201 CREATED response that the Broker can vary wildly. The credentials we get back from Minibroker
+look something like this:
 ```
 {
   "credentials": {
-    "uri": "mysql://mysqluser:pass@mysqlhost:3306/dbname",
-    "username": "mysqluser",
-    "password": "pass",
-    "host": "mysqlhost",
-    "port": 3306,
-    "database": "dbname"
+    "Protocol": "redis",
+    "host": "jumpy-albatross-redis-master.default.svc.cluster.local",
+    "password": "2dkVG7C4YQ"
+    "port": 6379,
+    "redis-password": "2dkVG7C4YQ",
+    "redis-uri": "redis://:2dkVG7C4YQ@jumpy-albatross-redis-master.default.svc.cluster.local:6379"
   }
 }
-
 ```
 
 The only required field here is credentials - what it contains is entirely up to the broker. In this
