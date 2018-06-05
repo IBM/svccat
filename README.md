@@ -1,6 +1,6 @@
 # svccat
 
-This is a collection of materials intended to educate about the use of [Service Catalog](https://github.com/kubernetes-incubator/service-catalog", a
+This is a collection of materials intended to educate about the use of [Service Catalog](https://github.com/kubernetes-incubator/service-catalog), a
 Kubernetes extension project that implements the [Open Service Broker API](https://github.com/openservicebrokerapi/servicebroker). This allows
 cloud application developers to easily provision web services and connect them to their application.
 
