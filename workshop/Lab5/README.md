@@ -78,8 +78,14 @@ For the purposes of this workshop we'll be using the redis Class and the 4-0-9 p
 
 Use svcat to provision an instance by running 
 ```
-svcat provisison myredis --class=redis --plan=4-0-9
+$ svcat provisison myredis --class=redis --plan=4-0-9
+  Name:        myredis  
+  Namespace:   default   
+  Status:                
+  Class:       redis     
+  Plan:        4-0-9
 ```
+
 If you're interested in a more in-depth explanation of what's going on behind the scenes, check [here](provision.md).
 After provisioning, you should be able to list service instances and see your instance:
 ```
