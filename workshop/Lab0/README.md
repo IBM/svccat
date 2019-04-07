@@ -87,7 +87,7 @@ The service broker we will be deploying as part of this workshop will deploy res
 for these services to have a place to store data, we need to create a Persistant Volume for them to mount. Find the `pv.yaml`
 file in the Lab0 directory of this repository, and then run 
 ```
-kubectl create -f pv.yaml`
+kubectl create -f pv.yaml
 ```
 This step is only needed to support the specific service (redis) we'll be deploying using a service broker on IBM Cloud IKS. It is not a normal step of the
 Service Catalog workflow.

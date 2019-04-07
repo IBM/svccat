@@ -39,7 +39,7 @@ we'll create a Kubernetes nodeport service, which will allow us to connect to ou
 a stand-in for any externally provisioned service, such as an externally-hosted Redis, a Redis cluster running
 in the same data center as our Kubernetes cluster, etc. To expose the Redis deployment, run:
 ```console
-$ kubectl expose deployment redis-master --type Nodeport --port 6379
+$ kubectl expose deployment redis-master --type NodePort --port 6379
 service "redis-master" exposed
 ```
 
@@ -60,9 +60,9 @@ service is 30693. By default the Redis deployment was deployed with a password o
 can add this information to our applicaiton using `kubectl edit` and exposing them as
 environment variables:
 
-```
-$ kubectl edit deployment guestbook
 <pre>
+$ kubectl edit deployment guestbook
+
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -95,7 +95,7 @@ spec:
       labels:
         app: guestbook
     spec:
-      containers:<b>   
+      containers:<b>
       - env:
         - name: REDIS_MASTER_SERVICE_HOST
           value: "INSERT HOSTNAME HERE"
@@ -138,7 +138,6 @@ status:
   replicas: 1
   updatedReplicas: 1
   </pre>
-```
 
 Once you've done that, Kubernetes should automatically detect the change in your deployment,
 and restard the pod. You can see this if you quickly type `kubectl get pods`.
