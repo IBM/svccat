@@ -1,4 +1,4 @@
-# Lab 2 Deploy an application with a manually provisioned backing store
+# Lab 2: Deploy an application with a manually provisioned backing store
 
 In this lab we'll learn to manually provision a Redis instance, and manually connect it to an
 application hosted on the IBM Kubernetes Service.

@@ -1,4 +1,4 @@
-# Lab 0: Install Prequisites
+# Lab 0: Install prequisites
 
 Before we begin, we need to install Service Catalog and a few other things
 we'll need. Towards that end, this lab contains instructions to install:

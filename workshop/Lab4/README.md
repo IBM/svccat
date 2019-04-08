@@ -1,4 +1,4 @@
-# Lab 4 Deploy a service broker
+# Lab 4: Deploy a service broker
 
 In this lab we'll learn how to deploy a service broker, connect it to Kubernetes using Service Catalog,
 and view the catalog of services.
