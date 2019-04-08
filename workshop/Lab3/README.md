@@ -1,4 +1,4 @@
-# Lab 3 Deploy an application with a secret containing creds to a backing store
+# Lab 3: Deploy an application with a secret containing creds to a backing store
 
 In this lab we'll learn how to create a Kubernetes secret containing the credentials to connect to a service,
 and attach that secret to an application to consume that service.

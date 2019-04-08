@@ -1,4 +1,4 @@
-# Lab 5 Deploy an OSB service and attach it to a deployment
+# Lab 5: Deploy an OSB service and attach it to a deployment
 
 In this lab we'll learn to provision a service instance, create a binding for your service instance,
 and use that binding to connect your deployment to that service.
